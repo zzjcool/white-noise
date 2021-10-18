@@ -57,6 +57,13 @@ export default {
 <style lang="scss">
 .mainlayout .q-drawer {
   // background: linear-gradient(145deg, #3370ad 25%, #e4b04f 80%);
+  background: rgba(61, 61, 61, 0.7);
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .mainlayout .q-drawer {
+  // background: linear-gradient(145deg, #3370ad 25%, #e4b04f 80%);
   background: none;
   backdrop-filter: blur(5px);
 }

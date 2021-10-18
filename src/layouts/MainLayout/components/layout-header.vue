@@ -71,9 +71,12 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  // background: linear-gradient(145deg, #3370ad 25%, #e4b04f 80%);
-  // background: #4d4d4d3d;
-  // background: linear-gradient(direction, #4d4d4d, #4d4d4d3d);
+  background: rgba(61, 61, 61, 0.7);
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .header {
   background: none;
   background-image: linear-gradient(#000, #00000000);
 

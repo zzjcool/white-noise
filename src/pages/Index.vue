@@ -184,12 +184,13 @@ export default {
 
 <style lang="scss" scoped>
 .tip {
-  // background: linear-gradient(145deg, #3370ad 25%, #e4b04f 80%);
-  // background: #4d4d4d3d;
-  // background: linear-gradient(direction, #4d4d4d, #4d4d4d3d);
-  background: none;
-  // background-image: linear-gradient(#949494 1%, #86868613);
+  background: rgba(107, 107, 107, 0.7);
+}
 
+_::-webkit-full-page-media,
+_:future,
+:root .tip {
+  background: none;
   backdrop-filter: blur(5px);
 }
 .controll {
