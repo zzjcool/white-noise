@@ -1,5 +1,9 @@
 <template>
-  <q-layout view="HHh LpR Lff" class="mainlayout">
+  <q-layout
+    view="HHh LpR Lff"
+    class="mainlayout"
+    :class="isAndroid ? 'mainlayout_android' : ''"
+  >
     <canvas id="sky" ref="bg"></canvas>
     <layout-header v-model:left="left" />
     <layout-drawer :left="left" />
@@ -28,7 +32,9 @@ export default {
     let left = ref(true);
     let bg = ref(null);
     provide("leftDrawer", ref(true));
-
+    const isAndroid =
+      navigator.userAgent.indexOf("Android") > -1 ||
+      navigator.userAgent.indexOf("Adr") > -1;
     onMounted(() => {
       //get the canvas and conext and store in vars
       var canvas = bg.value;
@@ -111,7 +117,7 @@ export default {
       setInterval(drawFlakes, 25);
     });
 
-    return { left, bg };
+    return { left, bg, isAndroid };
   },
 };
 </script>

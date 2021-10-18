@@ -71,15 +71,13 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  background: rgba(61, 61, 61, 0.7);
-}
-
-_::-webkit-full-page-media,
-_:future,
-:root .header {
   background: none;
   background-image: linear-gradient(#000, #00000000);
 
   backdrop-filter: blur(2px);
+}
+
+.mainlayout_android .header {
+  background: rgba(61, 61, 61, 0.7) ;
 }
 </style>

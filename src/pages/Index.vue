@@ -184,15 +184,14 @@ export default {
 
 <style lang="scss" scoped>
 .tip {
-  background: rgba(107, 107, 107, 0.7);
-}
-
-_::-webkit-full-page-media,
-_:future,
-:root .tip {
   background: none;
   backdrop-filter: blur(5px);
 }
+
+.mainlayout_android .tip {
+  background: rgba(107, 107, 107, 0.7);
+}
+
 .controll {
   max-width: 800px;
 }
