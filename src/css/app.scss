@@ -1,0 +1,36 @@
+// app global css in SCSS form
+
+:root {
+  background: #000;
+}
+body {
+  background: #000;
+  // background: linear-gradient( #f3a89280, #dab97b80, #23a6d580, #23d5ab80);
+  // background: linear-gradient(-45deg, #55d0fd,#14495c,  #222222, #000000);
+  background: linear-gradient( #000000, #70707080, #4d4d4d80, #000000);
+  // background-size: 400% 400%;
+  // animation: gradient 8s ease infinite;
+  // height: 100vh;
+  // -webkit-animation: gradient 8s ease infinite;
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: unset;
+  text-decoration: none;
+}

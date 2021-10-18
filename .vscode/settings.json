@@ -1,0 +1,16 @@
+{
+  "vetur.validation.template": false,
+  "vetur.format.enable": false,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+
+  "vetur.experimental.templateInterpolationService": true,
+
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": true
+}
