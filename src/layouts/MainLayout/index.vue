@@ -39,11 +39,11 @@ export default {
     let drawTime = null;
     const draw = () => {
       //get the canvas and conext and store in vars
-      var canvas = bg.value;
-      var ctx = canvas.getContext("2d");
+      let canvas = bg.value;
+      let ctx = canvas.getContext("2d");
 
-      var getPixelRatio = function (context) {
-        var backingStore =
+      let getPixelRatio = function (context) {
+        let backingStore =
           context.backingStorePixelRatio ||
           context.webkitBackingStorePixelRatio ||
           context.mozBackingStorePixelRatio ||
@@ -53,12 +53,12 @@ export default {
           1;
         return (window.devicePixelRatio || 1) / backingStore;
       };
-      var ratio = getPixelRatio(ctx);
+      let ratio = getPixelRatio(ctx);
 
-      var W = $q.screen.width;
-      var H = $q.screen.height;
+      let W = $q.screen.width;
+      let H = $q.screen.height;
 
-      var mf = (ratio * (W * H)) / 4000;
+      let mf = (ratio * (W * H)) / 4000;
 
       canvas.width = W;
       canvas.height = H;
@@ -72,9 +72,9 @@ export default {
       W = canvas.width;
       H = canvas.height;
 
-      var flakes = [];
+      let flakes = [];
 
-      for (var i = 0; i < mf; i++) {
+      for (let i = 0; i < mf; i++) {
         flakes.push({
           x: Math.random() * W,
           y: Math.random() * H,
@@ -86,10 +86,10 @@ export default {
       function drawFlakes() {
         ctx.clearRect(0, 0, W, H);
 
-        var grd = ctx.createLinearGradient(0, 0, 0, H);
+        let grd = ctx.createLinearGradient(0, 0, 0, H);
         grd.addColorStop(0, "#000000");
-        grd.addColorStop(0.25, "#70707080");
-        grd.addColorStop(0.5, "#4d4d4d80");
+        grd.addColorStop(0.25, "#3d3d3d");
+        grd.addColorStop(0.5, "#2d2d2d");
         grd.addColorStop(1, "#000000");
 
         // 填充渐变
@@ -98,8 +98,8 @@ export default {
 
         ctx.fillStyle = "#ffffff";
         ctx.beginPath();
-        for (var i = 0; i < mf; i++) {
-          var f = flakes[i];
+        for (let i = 0; i < mf; i++) {
+          let f = flakes[i];
           ctx.moveTo(f.x, f.y);
           ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
         }
@@ -111,8 +111,8 @@ export default {
 
       function moveFlakes() {
         angle += 0.01;
-        for (var i = 0; i < mf; i++) {
-          var f = flakes[i];
+        for (let i = 0; i < mf; i++) {
+          let f = flakes[i];
 
           f.y -= Math.pow(f.d, 2) * 1;
           // f.x += Math.sin(angle) * 2;
@@ -127,7 +127,7 @@ export default {
           }
         }
       }
-      if (drawTime) {
+      if (drawTime !== null) {
         clearInterval(drawTime);
       }
       drawTime = setInterval(drawFlakes, 25);
