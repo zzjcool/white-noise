@@ -35,7 +35,9 @@ export default {
     const isAndroid =
       navigator.userAgent.indexOf("Android") > -1 ||
       navigator.userAgent.indexOf("Adr") > -1;
-    onMounted(() => {
+
+    let drawTime = null;
+    const draw = () => {
       //get the canvas and conext and store in vars
       var canvas = bg.value;
       var ctx = canvas.getContext("2d");
@@ -52,6 +54,7 @@ export default {
         return (window.devicePixelRatio || 1) / backingStore;
       };
       var ratio = getPixelRatio(ctx);
+
       var W = $q.screen.width;
       var H = $q.screen.height;
 
@@ -82,6 +85,17 @@ export default {
 
       function drawFlakes() {
         ctx.clearRect(0, 0, W, H);
+
+        var grd = ctx.createLinearGradient(0, 0, 0, H);
+        grd.addColorStop(0, "#000000");
+        grd.addColorStop(0.25, "#70707080");
+        grd.addColorStop(0.5, "#4d4d4d80");
+        grd.addColorStop(1, "#000000");
+
+        // 填充渐变
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, W, H);
+
         ctx.fillStyle = "#ffffff";
         ctx.beginPath();
         for (var i = 0; i < mf; i++) {
@@ -113,10 +127,13 @@ export default {
           }
         }
       }
-
-      setInterval(drawFlakes, 25);
-    });
-
+      if (drawTime) {
+        clearInterval(drawTime);
+      }
+      drawTime = setInterval(drawFlakes, 25);
+    };
+    onMounted(draw);
+    onresize = draw;
     return { left, bg, isAndroid };
   },
 };
