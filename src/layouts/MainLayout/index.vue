@@ -1,7 +1,7 @@
 <template>
   <q-layout
     view="HHh LpR Lff"
-    class="mainlayout"
+    class="mainlayout overflow-hidden"
     :class="isAndroid ? 'mainlayout_android' : ''"
   >
     <canvas id="sky" ref="bg"></canvas>
