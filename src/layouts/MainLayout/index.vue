@@ -38,7 +38,6 @@ export default {
 
     let drawTime = null;
     const draw = () => {
-      //get the canvas and conext and store in vars
       let canvas = bg.value;
       let ctx = canvas.getContext("2d");
 
@@ -55,8 +54,8 @@ export default {
       };
       let ratio = getPixelRatio(ctx);
 
-      let W = $q.screen.width;
-      let H = $q.screen.height;
+      let W = window.screen.availWidth;
+      let H = window.screen.availHeight;
 
       let mf = (ratio * (W * H)) / 4000;
 
