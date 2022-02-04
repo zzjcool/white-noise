@@ -9,6 +9,14 @@
         left-label
         keep-color
       />
+      <q-btn
+        flat
+        v-if="!playAllFlag"
+        icon="fas fa-play"
+        class="text-white"
+        @click="playAll"
+      ></q-btn>
+      <q-btn flat v-else icon="fas fa-pause" class="text-white" @click="pauseAll"></q-btn>
       <q-btn flat icon="fas fa-redo" class="text-white" @click="reset"></q-btn>
     </div>
     <div
@@ -124,10 +132,20 @@ export default {
         }
       });
     };
+
+    let playAllFlag = ref(true);
+
     const pauseAll = () => {
       Object.keys(settings.playList).forEach((key) => {
         noises.source[key].pause();
       });
+      playAllFlag.value = false;
+    };
+    const playAll = () => {
+      Object.keys(settings.playList).forEach((key) => {
+        noises.source[key].play();
+      });
+      playAllFlag.value = true;
     };
     const clickScreen = () => {
       if (initFlag.value) {
@@ -165,6 +183,7 @@ export default {
       }
       initAudio();
       settings.save();
+      playAllFlag.value = true;
     });
 
     return {
@@ -176,6 +195,9 @@ export default {
       settings,
       initFlag,
       clickPlay,
+      pauseAll,
+      playAll,
+      playAllFlag,
       reset,
     };
   },

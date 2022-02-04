@@ -65,6 +65,14 @@ export class SeamlessNoise extends Noise {
     this.onPlay = false;
     this.status = "stop";
   }
+  play() {
+    if (this.status !== "stop") {
+      return;
+    }
+    this.click();
+    this.onPlay = true;
+    this.status = "play";
+  }
   click() {
     if (this.ctx == null) {
       this.ctx = new AudioContext();

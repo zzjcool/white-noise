@@ -29,6 +29,14 @@ export class BackgroundNoise extends Noise {
     this.onPlay = false;
     this.status = "stop";
   }
+  play() {
+    if (this.status !== "stop") {
+      return;
+    }
+    this.player.play();
+    this.onPlay = true;
+    this.status = "play";
+  }
   click() {
     if (!this.player) {
       this.player = new Audio(this.url);
