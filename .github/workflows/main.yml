@@ -12,7 +12,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.23'
+          node-version: '12.22.1'
       - name: Cache
         uses: actions/cache@v1
         with:
